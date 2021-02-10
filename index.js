@@ -79,6 +79,32 @@ $((e) => {
             borderWidth : "10px"
         });
     })
+
+    // css 초기 속성 얻기
+
+    // 1. DOM
+
+    // let input1 = $("#s2 input:first-child").get(0);
+    // let style1 = window.getComputedStyle(input1);
+    // let left = style1.getPropertyValue("left");
+    // let bg = style1.getPropertyValue("background-color");
+    // console.log(left);
+    // console.log(bg);
+
+    // 2. jQuery
+    let left = $("#s2 input:first-child").eq(0).position().left;
+    let bg = $("#s2 input:first-child").eq(0).css("background-color");
+    console.log(left);
+    console.log(bg);
+
+    // Ajax
+    // 데이터 갖고오기
+    $.get("data.txt",(data)=>{
+        console.log(data);
+    })
+
+    // 문서 갖고오기
+    //$("#s2").load("문서url");
 })
 
 $((e) => {
@@ -106,5 +132,28 @@ $((e) => {
     })
 })
 
+/*
+$(()=>{
+    class S{
+        constructor(){
+            this.x = 10;
+            this.btn1 = document.querySelector("#s2 input:first-child");
+            this.btn1.onclick = this.btn1ClickHandler.bind(this);
+        }
+        btn1ClickHandler(){
+            console.log(this.x);
+            console.log("버튼이 클릭되었습니다.");
+            setTimeout(()=>{
+                console.log(this.x);
+            },1000);
+            // setTimeout(function(){
+            //     console.log(this.x);
+            // },1000);
+        }
+    }
+
+    new S();
+});
+*/
 
 
